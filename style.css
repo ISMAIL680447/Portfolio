@@ -1,0 +1,118 @@
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --accent: #222222;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  --bg: #121212;
+  --text: #eeeeee;
+  --accent: #ffffff;
+}
+
+header {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+#themeToggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  color: var(--accent);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+nav {
+  background: #555;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+section {
+  padding: 2rem;
+  margin: 1rem;
+  background: white;
+  border-radius: 8px;
+}
+
+body.dark-mode section {
+  background: #1e1e1e;
+}
+
+.project {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #eee;
+}
+
+body.dark-mode .project {
+  background: #2a2a2a;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+form button {
+  padding: 0.7rem 1.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Swiper Carousel Styles */
+.swiper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.swiper-slide {
+  background: #eee;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #333;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #333;
+}

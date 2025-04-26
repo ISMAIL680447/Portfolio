@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hi, I'm ISMAIL 👋</h1>
+    <p><span id="typed-text"></span></p>
+    <button id="themeToggle">🌙 click me</button>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I build modern web apps using HTML, CSS, JavaScript, and more. Passionate about design and code.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide project">
+          <h3>Portfolio Website</h3>
+          <p>A sleek personal portfolio built with HTML, CSS, JS.</p>
+        </div>
+        <div class="swiper-slide project">
+          <h3>Todo App</h3>
+          <p>A lightweight task manager with localStorage support.</p>
+        </div>
+        <div class="swiper-slide project">
+          <h3>Weather App</h3>
+          <p>Shows live weather using a public API.</p>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contactForm">
+      <input type="text" name="user_name" placeholder="Your Name" required />
+      <input type="email" name="user_email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="formStatus"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2022 I IT COMPANY. All rights reserved.</p>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- EmailJS Init -->
+  <script>
+    (function () {
+      emailjs.init("MXqMs9bR2ZoeLjImL"); // Replace with your EmailJS public key
+    })();
+  </script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>
