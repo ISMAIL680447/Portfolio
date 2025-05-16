@@ -6,32 +6,23 @@
   <title>My Portfolio</title>
 
   <!-- Swiper CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-  />
-
-  <!-- Custom Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<!-- WhatsApp Floating Button with Icon -->
-<a
-  href="https://wa.me/919390288951"
-  class="whatsapp-float"
-  target="_blank"
-  title="Chat on WhatsApp"
->
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-</a>
 
 <body>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919390288951" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
+
   <header>
     <h1>Hi, I'm ISMAIL 👋</h1>
     <p><span id="typed-text"></span></p>
     <button id="themeToggle">🌙 click me</button>
     <div class="intro-image">
-        <img src="ismail.jpg" alt="Alex's Photo" />
-      </div>
+      <img src="ismail.jpg" alt="Ismail's Photo" />
+    </div>
   </header>
 
   <nav>
@@ -67,6 +58,44 @@
       <div class="swiper-pagination"></div>
     </div>
   </section>
+<section id="gallery">
+  <h2>Image Gallery</h2>
+  <div class="slider">
+    <div class="slides">
+      <img src="images/pic1.jpg" class="slide active" alt="Gallery Image 1" />
+      <img src="images/pic2.jpg" class="slide" alt="Gallery Image 2" />
+      <img src="images/pic3.jpg" class="slide" alt="Gallery Image 3" />
+      <img src="images/pic4.jpg" class="slide" alt="Gallery Image 4" />
+      <img src="images/pic5.jpg" class="slide" alt="Gallery Image 5" />
+      <img src="images/pic6.jpg" class="slide" alt="Gallery Image 6" />
+      <img src="images/pic7.jpg" class="slide" alt="Gallery Image 7" />
+      <img src="images/pic8.jpg" class="slide" alt="Gallery Image 8" />
+      <img src="images/pic9.jpg" class="slide" alt="Gallery Image 9" />
+      <img src="images/pic10.jpg" class="slide" alt="Gallery Image 10" />
+      <img src="images/pic11.jpg" class="slide" alt="Gallery Image 11" />
+
+    </div>
+
+    <button class="prev" aria-label="Previous Slide">&#10094;</button>
+    <button class="next" aria-label="Next Slide">&#10095;</button>
+
+    <div class="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+      <span class="dot" data-index="5"></span>
+      <span class="dot" data-index="6"></span>
+      <span class="dot" data-index="7"></span>
+      <span class="dot" data-index="8"></span>
+      <span class="dot" data-index="9"></span>
+      <span class="dot" data-index="10"></span>
+
+
+    </div>
+  </div>
+</section>
 
   <section id="contact">
     <h2>Contact</h2>
@@ -77,15 +106,12 @@
       <button type="submit">Send</button>
     </form>
     <p id="formStatus"></p>
-  </section>
-  <section id="contact">
-  <h2>Contact</h2>
-  <!-- Your contact form here -->
 
-  <h3>Our Office Location</h3>
+    
+      <h3>Our Office Location</h3>
   <div class="google-map">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4058266721256!2d78.4870551752079!3d17.43746390363945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb977ddf13b34b%3A0x3f3f3e5f88263f62!2sSiva%20Reddy%20Palem%2C%20Guntur%2C%20Andhra%20Pradesh%20522002!5e0!3m2!1sen!2sin!4v1683700000000"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.605829535866!2d80.61616797420357!3d16.51008612740515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fabfb91809b7%3A0xf844649c40710f31!2sChittinagar%2C%20Fraserpeta%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520001!5e0!3m2!1sen!2sin!4v1715856342042!5m2!1sen!2sin"
       width="100%"
       height="300"
       style="border:0;"
@@ -93,15 +119,15 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
-  </div>
-</section>
 
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2022 I IT COMPANY. All rights reserved.</p>
   </footer>
 
-  <!-- Libraries -->
+  <!-- External JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -109,11 +135,11 @@
   <!-- EmailJS Init -->
   <script>
     (function () {
-      emailjs.init("MXqMs9bR2ZoeLjImL"); // Replace with your EmailJS public key
+      emailjs.init("MXqMs9bR2ZoeLjImL"); // Replace with your actual EmailJS key
     })();
   </script>
 
-  <!-- Custom Script -->
+  <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
 </html>

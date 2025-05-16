@@ -15,15 +15,15 @@ toggleBtn.addEventListener("click", () => {
   localStorage.setItem("theme", theme);
 });
 
-// Typed.js Text Animation
-const typed = new Typed("#typed-text", {
+// Typed.js Animation
+new Typed("#typed-text", {
   strings: ["Web Developer", "Designer", "Creator"],
   typeSpeed: 60,
   backSpeed: 40,
   loop: true,
 });
 
-// EmailJS Contact Form
+// EmailJS Contact Form Submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -37,7 +37,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     });
 });
 
-// Swiper Carousel Initialization
+// Swiper Initialization
 new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
@@ -59,3 +59,42 @@ new Swiper(".mySwiper", {
     },
   },
 });
+// Image Slider with Dots
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+function showSlide(index) {
+  slideIndex = index;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+    dots[i].classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const index = parseInt(dot.getAttribute('data-index'));
+    showSlide(index);
+  });
+});
+
+// Auto Slide every 4 seconds
+setInterval(nextSlide, 4000);
