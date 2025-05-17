@@ -1,44 +1,22 @@
-// Dark/Light Mode Toggle
-const toggleBtn = document.getElementById("themeToggle");
-const body = document.body;
-
-window.onload = () => {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  }
-};
-
-toggleBtn.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  const theme = body.classList.contains("dark-mode") ? "dark" : "light";
-  localStorage.setItem("theme", theme);
-});
-
-// Typed.js Animation
-new Typed("#typed-text", {
-  strings: ["Web Developer", "Designer", "Creator"],
-  typeSpeed: 60,
-  backSpeed: 40,
+// Typed.js animation
+const typed = new Typed("#typed-text", {
+  strings: ["Web Developer", "Designer", "Freelancer"],
+  typeSpeed: 100,
+  backSpeed: 50,
   loop: true,
 });
 
-// EmailJS Contact Form Submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  emailjs.sendForm("service_zualyf6", "template_8zin162", this)
-    .then(() => {
-      document.getElementById("formStatus").textContent = "✅ Message sent successfully!";
-      this.reset();
-    }, (error) => {
-      document.getElementById("formStatus").textContent = "❌ Failed to send message. Try again.";
-      console.error("EmailJS error:", error);
-    });
+// Theme toggle
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  themeToggle.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️ click me"
+    : "🌙 click me";
 });
 
-// Swiper Initialization
-new Swiper(".mySwiper", {
+// Initialize Swiper
+const swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
   loop: true,
@@ -50,51 +28,40 @@ new Swiper(".mySwiper", {
     el: ".swiper-pagination",
     clickable: true,
   },
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
+});
+
+// EmailJS form submit
+console.log("Form is being submitted...");
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_zualyf6", "template_8zin162", this).then(
+    function () {
+      formStatus.style.color = "green";
+      formStatus.textContent = "Message sent successfully!";
+      contactForm.reset();
     },
-    1024: {
-      slidesPerView: 3,
-    },
+    function (error) {
+      formStatus.style.color = "red";
+      formStatus.textContent = "Oops! Something went wrong...";
+      console.error("EmailJS error:", error);
+    }
+  );
+});
+// Swiper for Image Gallery (1 image at a time, auto-slide)
+new Swiper(".gallerySwiper", {
+  slidesPerView: 1,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".gallerySwiper .swiper-pagination",
+    clickable: true,
   },
 });
-// Image Slider with Dots
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-function showSlide(index) {
-  slideIndex = index;
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-    dots[i].classList.toggle('active', i === index);
-  });
-}
-
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
-}
-
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-if (nextBtn && prevBtn) {
-  nextBtn.addEventListener('click', nextSlide);
-  prevBtn.addEventListener('click', prevSlide);
-}
-
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    const index = parseInt(dot.getAttribute('data-index'));
-    showSlide(index);
-  });
-});
-
-// Auto Slide every 4 seconds
-setInterval(nextSlide, 4000);
