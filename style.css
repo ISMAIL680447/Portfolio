@@ -11,6 +11,7 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
 }
 
 body.dark-mode {
@@ -25,6 +26,7 @@ header {
   padding: 2rem;
   text-align: center;
   position: relative;
+  animation: fadeInDown 1s ease forwards;
 }
 
 #themeToggle {
@@ -43,12 +45,17 @@ nav {
   background: #555;
   padding: 0.5rem;
   text-align: center;
+  animation: fadeIn 1s ease forwards;
 }
 
 nav a {
   color: white;
   margin: 0 1rem;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #ffcc00;
 }
 
 section {
@@ -58,6 +65,9 @@ section {
   background: white;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s ease forwards;
 }
 
 body.dark-mode section {
@@ -65,7 +75,6 @@ body.dark-mode section {
   box-shadow: 0 0 8px rgba(255,255,255,0.1);
 }
 
-/* Skills - horizontal line */
 .skills-container {
   display: flex;
   justify-content: center;
@@ -78,6 +87,7 @@ body.dark-mode section {
   text-align: center;
   font-weight: 600;
   color: var(--accent);
+  animation: fadeInUp 1s ease forwards;
 }
 
 .skill img {
@@ -85,9 +95,13 @@ body.dark-mode section {
   height: 50px;
   display: block;
   margin: 0 auto 0.3rem;
+  transition: transform 0.3s ease;
 }
 
-/* Gallery images in a horizontal row with scroll if overflow */
+.skill img:hover {
+  transform: scale(1.1);
+}
+
 .gallery-row {
   display: flex;
   gap: 10px;
@@ -100,16 +114,13 @@ body.dark-mode section {
 .gallery-row::-webkit-scrollbar {
   height: 8px;
 }
-
 .gallery-row::-webkit-scrollbar-track {
   background: #ddd;
 }
-
 .gallery-row::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 4px;
 }
-
 .gallery-row img {
   height: 150px;
   flex-shrink: 0;
@@ -118,11 +129,10 @@ body.dark-mode section {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .gallery-row img:hover {
   transform: scale(1.05);
 }
-/* Gallery Swiper Styling */
+
 .gallerySwiper {
   width: 90%;
   max-width: 700px;
@@ -142,12 +152,10 @@ body.dark-mode section {
   background: #ccc;
   opacity: 1;
 }
-
 .gallerySwiper .swiper-pagination-bullet-active {
   background: #333;
 }
 
-/* Contact form styling */
 form#contactForm {
   max-width: 500px;
   margin: 0 auto;
@@ -173,14 +181,14 @@ form#contactForm button {
   font-size: 1.1rem;
   cursor: pointer;
   border-radius: 6px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 form#contactForm button:hover {
   background: #444;
+  transform: scale(1.05);
 }
 
-/* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
   bottom: 15px;
@@ -189,24 +197,24 @@ form#contactForm button:hover {
   height: 50px;
   z-index: 1000;
 }
-
 .whatsapp-float img {
   width: 100%;
   height: 100%;
 }
 
-/* Intro image styling */
 .intro-image img {
   max-width: 150px;
   border-radius: 50%;
   margin-top: 1rem;
+  transition: transform 0.4s ease;
+}
+.intro-image img:hover {
+  transform: scale(1.1);
 }
 
-/* Swiper adjustments */
 .swiper {
   margin-top: 2rem;
 }
-
 .swiper-slide.project {
   background: var(--accent);
   color: var(--bg);
@@ -215,7 +223,6 @@ form#contactForm button:hover {
   text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .skills-container {
     flex-wrap: wrap;
@@ -225,6 +232,7 @@ form#contactForm button:hover {
     height: 120px;
   }
 }
+
 footer {
   background-color: #111;
   color: #eee;
@@ -232,17 +240,43 @@ footer {
   padding: 20px;
   font-size: 14px;
 }
-#about {
-  background-color: #f0f8ff;  /* Light blue, for example */
-  padding: 2rem;
-  border-radius: 8px;
-  color: #333; /* Optional: text color for contrast */
-}
-}
 
-#contact {
-  background-color: #1466ad; /* Light blue */
+#about {
+  background-color: #f0f8ff;
   padding: 2rem;
   border-radius: 8px;
   color: #333;
+}
+#contact {
+  background-color: #1466ad;
+  padding: 2rem;
+  border-radius: 8px;
+  color: #333;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
